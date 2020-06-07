@@ -41,6 +41,9 @@ class DToolsServiceProvider extends ServiceProvider
 
             // Registering package commands.
             // $this->commands([]);
+            $this->commands([
+                downloadZipFilesCommand::class,
+            ]);
         }
     }
 

@@ -17,7 +17,9 @@
     ],
     "require": {
         "php": "^7.1",
-        "illuminate/support": "^7.0"
+        "illuminate/support": "^7.0",
+        "nicolab/php-ftp-client": "^1.5",
+        "zanysoft/laravel-zip": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
