@@ -38,16 +38,6 @@ class downloadZipFilesCommand extends Command
     {
         parent::__construct();
 
-        $this->ftp = new \FtpClient\FtpClient();
-        try {
-
-            $this->ftp->connect(env('COLISSIMO_FTP_HOST') , env('COLISSIMO_FTP_USE_SSL'), env('COLISSIMO_FTP_PORT'));
-            $this->ftp->login(env('COLISSIMO_FTP_USER'), env('COLISSIMO_FTP_PASSWORD'));
-
-        } catch (FtpClient\FtpException $e) {
-
-            Log::error($e->getMessage());
-        }
     }
 
     /**
@@ -106,6 +96,18 @@ class downloadZipFilesCommand extends Command
         if(!Storage::exists('colissimos') ) {
             Storage::makeDirectory('colissimos');
         }
+
+        $this->ftp = new \FtpClient\FtpClient();
+        try {
+
+            $this->ftp->connect(env('COLISSIMO_FTP_HOST') , env('COLISSIMO_FTP_USE_SSL'), env('COLISSIMO_FTP_PORT'));
+            $this->ftp->login(env('COLISSIMO_FTP_USER'), env('COLISSIMO_FTP_PASSWORD'));
+
+        } catch (FtpClient\FtpException $e) {
+
+            Log::error($e->getMessage());
+        }
+
 
         foreach($this->societes as $societe){
 
